@@ -1,0 +1,11 @@
+<div class="hero-list-item" *ngIf="hero">
+  <button mat-raised-button color="primary" routerLink="/detail/{{ hero.id }}">
+    <div class="hero-list-item-content">
+      <strong>{{ hero.id }}</strong>
+      <span>{{ hero.name }}</span>
+    </div>
+  </button>
+  <button mat-raised-button color="warn" (click)="delete.emit()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

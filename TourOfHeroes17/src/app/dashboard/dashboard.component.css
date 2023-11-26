@@ -1,0 +1,11 @@
+.top-heroes {
+  display: flex;
+  gap: 1em;
+  justify-items: center;
+  justify-content: center;
+  margin-block: 1em;
+}
+
+mat-divider {
+  margin-block: 2rem;
+}

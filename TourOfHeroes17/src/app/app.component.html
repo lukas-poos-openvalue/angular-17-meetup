@@ -1,0 +1,24 @@
+<div id="app">
+  <header>
+    @defer {
+    <mat-toolbar color="primary">
+      <span>Tour of Heroes 17</span>
+      <span class="spacer"></span>
+      <button mat-raised-button color="accent" routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-raised-button color="accent" routerLink="/heroes">
+        <mat-icon>view_list</mat-icon>
+        <span>Heroes</span>
+      </button>
+    </mat-toolbar>
+    }
+  </header>
+
+  <main>
+    <router-outlet />
+  </main>
+
+  <app-messages />
+</div>

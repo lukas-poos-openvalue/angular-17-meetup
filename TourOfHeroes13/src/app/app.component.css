@@ -1,0 +1,16 @@
+#app {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header button {
+  margin-inline: 0.3em;
+}
+
+main {
+  overflow-y: scroll;
+  margin-top: 2em;
+  margin-inline: auto;
+  width: min(100% - 3rem, 65ch);
+}

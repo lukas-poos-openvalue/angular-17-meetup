@@ -1,0 +1,21 @@
+<h2>
+  <span>Top Heroes </span>
+  <mat-icon>emoji_events</mat-icon>
+</h2>
+
+<div class="top-heroes">
+  @for (hero of heroes(); track hero.id) {
+  <button mat-raised-button color="primary" routerLink="/detail/{{ hero.id }}">
+    {{ hero.name }}</button
+  >}
+</div>
+
+<mat-divider></mat-divider>
+
+@defer (on idle) {
+<app-hero-search></app-hero-search>
+} @placeholder {
+<strong>HERO SEARCH</strong>
+} @loading {
+<strong>HERO SEARCH...</strong>
+}

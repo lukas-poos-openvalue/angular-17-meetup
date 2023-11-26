@@ -1,0 +1,17 @@
+@if (messages().length) {
+<mat-toolbar color="secondary">
+  <mat-toolbar-row>
+    <span class="material-icons">mail_outline</span>
+    <span class="header">Messages</span>
+    <span class="spacer"></span>
+    <button mat-button color="warn" (click)="clear()">Clear messages</button>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="message-row">
+    <mat-chip-set>
+      @for (message of messages(); track $index) {
+      <mat-chip>{{ message }}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-toolbar-row>
+</mat-toolbar>
+}

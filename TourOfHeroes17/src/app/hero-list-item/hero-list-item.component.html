@@ -1,0 +1,9 @@
+<div class="hero-list-item">
+  <button mat-raised-button color="primary" routerLink="/detail/{{ hero.id }}">
+    <strong>{{ hero.id }}</strong>
+    <span>{{ hero.name }}</span>
+  </button>
+  <button mat-raised-button color="warn" (click)="delete.emit()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

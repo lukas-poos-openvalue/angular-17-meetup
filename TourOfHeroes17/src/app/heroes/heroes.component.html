@@ -1,0 +1,26 @@
+<h2>
+  <span>My Heroes </span>
+  <mat-icon>format_list_bulleted</mat-icon>
+</h2>
+
+<mat-form-field>
+  <mat-label>Add hero</mat-label>
+  <input
+    #heroName
+    matInput
+    placeholder="Ex. Captian America, ..."
+    (keyup.enter)="add(heroName.value); heroName.value = ''"
+  />
+  <mat-icon matSuffix>add</mat-icon>
+</mat-form-field>
+
+<mat-list>
+  @for (hero of heroes(); track hero.id) {
+  <mat-list-item>
+    <app-hero-list-item
+      [hero]="hero"
+      (delete)="delete(hero)"
+    ></app-hero-list-item>
+  </mat-list-item>
+  }
+</mat-list>
