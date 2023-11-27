@@ -2,26 +2,44 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.10.
 
-## Development server
+## Command overview for this demo version
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- `npm run start`: Start serving the app with development server
+- `npm run start:prod`: Start serving the app after production build (requires [http-server](https://www.npmjs.com/package/http-server))
+- _IMPORTANT_: The Angular CLI command might not work, since Angular 7 relies of deprecated features of NodeJS. `export NODE_OPTIONS=--openssl-legacy-provider` might help!
 
-## Code scaffolding
+## Implementation overview for this demo version
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- One module for the entire application (see [app.module.ts](./src/app/app.module.ts))
+  - Imports Angular Material modules
+  - Imports [AppRoutingModule](./src/app/app-routing.module.ts)
+  - Declares all six components
+- Three routes defined in [AppRoutingModule](./src/app/app-routing.module.ts):
+  - `/dashboard` --> [DashboardComponent](./src/app/dashboard/dashboard.component.ts)
+  - `/heroes` --> [HeroesComponent](./src/app/heroes/heroes.component.ts)
+  - `/detail/:id` --> [HeroDetailComponent](./src/app/hero-detail/hero-detail.component.ts)
+- Two services defined:
+  - [HeroService](./src/app/hero.service.ts): Calls the API
+  - [MessageService](./src/app/message.service.ts): Manages messages fired on API calls
+- Honorable mentions:
+  - RxJS-Usage (HttpClient @ ([HeroService](./src/app/hero.service.ts)) / Operations & async-pipe @ [HeroSearchComponent](./src/app/hero-search/hero-search.component.html))
+  - Component inputs & outputs: [HeroListItem](./src/app/hero-list-item/hero-list-item.component.ts)
 
-## Build
+## Evaluation: Developer Experience
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- "Cool" features
+  - The out-of-the-box experience is feature-complete (Http / Routing / Toolset / ...)
+  - Modularization is possible
+- Impediments
+  - It feels verbose (module requirement, alot of files)
+  - Change detection is "magical" (Zone.js) or ambiguous (Zone.js + RxJS)
+  - Dev tools feel slow
 
-## Running unit tests
+## Evaluation: Performance characteristics
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Big initial bundle (~840kB)
+- FCP (First Contentful Paint) & LCP (Largest Contentful Paint) are bad (5.3sec / 5.6sec)
+  - Can be reduced by compression of the served bundle
+- TBT (Total Blocking Time) is mediocre (210ms)
+- Speed index is mediocre (5.3sec)
+- Reference report: [lighthouse report](./lighthouse_reference_report.html)
