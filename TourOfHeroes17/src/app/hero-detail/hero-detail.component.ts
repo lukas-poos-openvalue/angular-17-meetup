@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './hero-detail.component.css'
 })
 export class HeroDetailComponent {
-  @Input()
+  @Input({ required: true })
   set id(heroId: string) {
     this.#heroService.getHero(parseInt(heroId, 10))
       .subscribe(hero => this.#hero.set(hero));

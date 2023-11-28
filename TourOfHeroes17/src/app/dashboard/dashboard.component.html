@@ -4,10 +4,17 @@
 </h2>
 
 <div class="top-heroes">
-  @for (hero of heroes(); track hero.id) {
+  @for (hero of topHeroes(); track hero.id) {
   <button mat-raised-button color="primary" routerLink="/detail/{{ hero.id }}">
-    {{ hero.name }}</button
-  >}
+    {{ hero.name }}
+  </button>
+  }
+  <!-- @empty {
+  <strong>NO HEROES</strong>
+  } -->
+  <!-- @if (topHeroes()?.length) {
+  <button mat-raised-button color="primary" routerLink="/heroes">...</button>
+  } -->
 </div>
 
 <mat-divider></mat-divider>

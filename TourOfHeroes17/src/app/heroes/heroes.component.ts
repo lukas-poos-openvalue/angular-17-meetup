@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, effect, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,9 +19,11 @@ export class HeroesComponent implements OnInit {
   #heroService = inject(HeroService);
   #heroes = signal<Hero[]>([]);
   heroes = this.#heroes.asReadonly();
+  // #heroesCount = computed(() => this.heroes().length);
 
   ngOnInit(): void {
     this.#heroService.getHeroes().subscribe(heroes => this.#heroes.set(heroes));
+    // effect(() => console.log(`HeroesComponent: Count has updated to ${this.#heroesCount()}`));
   }
 
   add(name: string): void {

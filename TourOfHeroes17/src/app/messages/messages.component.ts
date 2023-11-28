@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MessageService } from '../message.service';
 import { MatToolbarModule } from '@angular/material/toolbar';

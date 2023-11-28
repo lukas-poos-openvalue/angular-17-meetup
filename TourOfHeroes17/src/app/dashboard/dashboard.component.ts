@@ -18,5 +18,5 @@ import { map } from 'rxjs';
 })
 export class DashboardComponent {
   #heroService = inject(HeroService);
-  heroes = toSignal(this.#heroService.getHeroes().pipe(map(heroes => heroes.slice(1, 5))));
+  topHeroes = toSignal(this.#heroService.getHeroes().pipe(map(heroes => heroes.slice(1, 5))));
 }
