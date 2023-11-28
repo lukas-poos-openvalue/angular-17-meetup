@@ -26,24 +26,18 @@ export class HeroDetailComponent {
   #hero = signal<Hero | undefined>(undefined);
 
   hero = this.#hero.asReadonly();
-  heroNameInputValue = '';
-
-  constructor() {
-    effect(() => {
-      const hero = this.#hero();
-      if (!hero) return;
-      this.heroNameInputValue = hero.name;
-    })
-  }
 
   goBack(): void {
     this.#location.back();
   }
 
+  updateName(name: string): void {
+    this.#hero.update(prev => prev ? { ...prev, name } : undefined);
+  }
+
   save(): void {
     const hero = this.#hero();
     if (!hero) return;
-    this.#heroService.updateHero(hero)
-      .subscribe(() => this.goBack());
+    this.#heroService.updateHero(hero).subscribe(() => this.goBack());
   }
 }

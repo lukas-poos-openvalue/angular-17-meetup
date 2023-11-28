@@ -9,7 +9,7 @@ export class HeroDetailResolver implements Resolve<Hero> {
 
     constructor(private heroService: HeroService) { }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Hero | Observable<Hero> | Promise<Hero> {
+    resolve(route: ActivatedRouteSnapshot): Hero | Observable<Hero> | Promise<Hero> {
         if (!route.paramMap.has('id')) {
             return of();
         }

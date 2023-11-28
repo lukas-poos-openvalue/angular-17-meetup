@@ -8,23 +8,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `npm run start:prod`: Start serving the app after production build (requires [http-server](https://www.npmjs.com/package/http-server))
 - _IMPORTANT_: The Angular CLI command might not work, since Angular 7 relies of deprecated features of NodeJS. `export NODE_OPTIONS=--openssl-legacy-provider` might help!
 
-## Implementation overview for this demo version
-
-- One module for the entire application (see [app.module.ts](./src/app/app.module.ts))
-  - Imports Angular Material modules
-  - Imports [AppRoutingModule](./src/app/app-routing.module.ts)
-  - Declares all six components
-- Three routes defined in [AppRoutingModule](./src/app/app-routing.module.ts):
-  - `/dashboard` --> [DashboardComponent](./src/app/dashboard/dashboard.component.ts)
-  - `/heroes` --> [HeroesComponent](./src/app/heroes/heroes.component.ts)
-  - `/detail/:id` --> [HeroDetailComponent](./src/app/hero-detail/hero-detail.component.ts)
-- Two services defined:
-  - [HeroService](./src/app/hero.service.ts): Calls the API
-  - [MessageService](./src/app/message.service.ts): Manages messages fired on API calls
-- Honorable mentions:
-  - RxJS-Usage (HttpClient @ ([HeroService](./src/app/hero.service.ts)) / Operations & async-pipe @ [HeroSearchComponent](./src/app/hero-search/hero-search.component.html))
-  - Component inputs & outputs: [HeroListItem](./src/app/hero-list-item/hero-list-item.component.ts)
-
 ## Evaluation: Developer Experience
 
 - "Cool" features

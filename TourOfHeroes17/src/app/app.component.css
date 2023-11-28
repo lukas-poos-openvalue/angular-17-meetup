@@ -9,7 +9,7 @@ header button {
 }
 
 main {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 2em;
   margin-inline: auto;
   width: min(100% - 3rem, 65ch);

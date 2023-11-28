@@ -15,7 +15,8 @@
       <input
         matInput
         placeholder="Enter a name..."
-        [(ngModel)]="heroNameInputValue"
+        [value]="hero.name"
+        (change)="updateName($any($event.target).value)"
       />
     </mat-form-field>
   </mat-card-content>
