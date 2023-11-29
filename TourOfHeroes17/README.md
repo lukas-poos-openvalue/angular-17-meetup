@@ -25,8 +25,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - [HeroDetail HTML](./src/app/hero-detail/hero-detail.component.html): Example there signal-integration seems incomplete
 
 - Impediments
-  - Signal integration can be improved
-    - Ex. two way binding with inputs / component inputs & outputs / not-readonly interop with RxJS / coexists with Zone.js
+  - Signal integration can be improved in many ways
+    - Examples
+      - two way binding with inputs
+      - component inputs & outputs
+      - not-readonly interop with RxJS
+      - change-detection & DOM-Updates
     - BUT: Solutions are on their way! (a quick teaser: [Signal-based components](https://github.com/angular/angular/discussions/49682))
 
 ## Evaluation: Performance

@@ -18,8 +18,9 @@ import { Hero, HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   #heroService = inject(HeroService);
   #heroes = signal<Hero[]>([]);
-  heroes = this.#heroes.asReadonly();
+  // heroesValue = this.#heroes();
   // #heroesCount = computed(() => this.heroes().length);
+  heroes = this.#heroes.asReadonly();
 
   ngOnInit(): void {
     this.#heroService.getHeroes().subscribe(heroes => this.#heroes.set(heroes));
