@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './hero-detail.component.css'
 })
 export class HeroDetailComponent {
+  // PoI: Required inputs & route input binding (see route '/detail/{id}')
   @Input({ required: true })
   set id(heroId: string) {
     this.#heroService.getHero(parseInt(heroId, 10))

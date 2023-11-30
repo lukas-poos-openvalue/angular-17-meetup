@@ -20,6 +20,7 @@ export class HeroSearchComponent {
   #heroService = inject(HeroService);
   #searchTerms = new Subject<string>();
 
+  // PoI: Observables work better here than signals
   heroes$: Observable<Hero[]> = this.#searchTerms.pipe(
     debounceTime(300),
     distinctUntilChanged(),

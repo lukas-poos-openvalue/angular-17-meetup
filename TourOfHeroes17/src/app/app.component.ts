@@ -8,8 +8,17 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
+  // PoI: Activate standalone by setting flag and declare specific imports
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, MessagesComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MessagesComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -15,7 +15,9 @@ export function app(): express.Express {
 
   const commonEngine = new CommonEngine();
 
+  // PoI: Uncomment this to enable compression of responses!
   // server.use(compression({ filter: (req, res) => !!req.headers['x-no-compression'] || compression.filter(req, res) }));
+
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 

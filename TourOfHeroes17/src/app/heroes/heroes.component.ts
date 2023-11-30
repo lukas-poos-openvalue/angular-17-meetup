@@ -16,20 +16,31 @@ import { Hero, HeroService } from '../hero.service';
   styleUrl: './heroes.component.css'
 })
 export class HeroesComponent implements OnInit {
+  // PoI: Private with "#" / dependency injection with inject-function
   #heroService = inject(HeroService);
+
+  // PoI: Signals for component state
   #heroes = signal<Hero[]>([]);
-  // heroesValue = this.#heroes();
-  // #heroesCount = computed(() => this.heroes().length);
   heroes = this.#heroes.asReadonly();
+
+  // PoI: Read a signal value
+  #heroesValue = this.heroes();
+
+  // PoI: Derive signal from another signal
+  #heroesCount = computed(() => this.heroes().length);
 
   ngOnInit(): void {
     this.#heroService.getHeroes().subscribe(heroes => this.#heroes.set(heroes));
-    // effect(() => console.log(`HeroesComponent: Count has updated to ${this.#heroesCount()}`));
+
+    // PoI: Whenever dependent values change, perform side effect!
+    effect(() => console.log(`Count was updated to ${this.#heroesCount()}`));
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) return;
+
+    // PoI: Update a signal's value (using signal.update(prev => ...) or signal.set(...))
     this.#heroService.addHero({ name } as Hero)
       .subscribe(hero => this.#heroes.update(prev => [...prev, hero]));
   }

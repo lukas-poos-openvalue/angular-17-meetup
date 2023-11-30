@@ -4,25 +4,32 @@
 </h2>
 
 <div class="top-heroes">
+  <!-- PoI: @for alternative for *ngFor (track is required now!) -->
   @for (hero of topHeroes(); track hero.id) {
   <button mat-raised-button color="primary" routerLink="/detail/{{ hero.id }}">
     {{ hero.name }}
   </button>
-  }
-  <!-- @empty {
+  } @empty {
+  <!-- PoI: @empty when @for has no elements -->
   <strong>NO HEROES</strong>
-  } -->
-  <!-- @if (topHeroes()?.length) {
+  }
+
+  <!-- PoI: @if alternative for *ngIf -->
+  @if (topHeroes()?.length) {
   <button mat-raised-button color="primary" routerLink="/heroes">...</button>
-  } -->
+  }
 </div>
 
-<mat-divider></mat-divider>
+<!-- PoI: Self closing tags with components -->
+<mat-divider />
 
+<!-- PoI: Deferrable view for standalone components -->
 @defer (on viewport; prefetch on idle) {
 <app-hero-search />
 } @placeholder {
 <strong>HERO SEARCH</strong>
 } @loading {
 <strong>HERO SEARCH...</strong>
+} @error {
+<strong style="color: red">ERROR WHILE LOADING HERO SEARCH!</strong>
 }

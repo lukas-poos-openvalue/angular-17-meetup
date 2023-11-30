@@ -18,5 +18,7 @@ import { map } from 'rxjs';
 })
 export class DashboardComponent {
   #heroService = inject(HeroService);
+
+  // PoI: RxJS-interop: Create signal from Observable
   topHeroes = toSignal(this.#heroService.getHeroes().pipe(map(heroes => heroes.slice(1, 5))));
 }

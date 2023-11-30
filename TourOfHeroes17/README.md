@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Evaluation: Developer Experience
 
-- Cool features and where to find them
+- Cool features and where to find them (Search for `PoI` (point of interest) in the code!)
 
   - [Angular.dev](https://angular.dev): Updated branding with new _documentation_
   - [src-folder](./src/): _Less junk files_ in the src directory (vendor.ts, polyfill.ts, karma.conf.js, ...)
