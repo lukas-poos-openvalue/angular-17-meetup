@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Command overview for this demo version
 
+- `../TourOfHeroesApi/tour-of-heroes-api`: Start backend (for details see [API README](../TourOfHeroesApi/README.md))
 - `npm run start`: Start serving the app with development server
 - `npm run start:prod`: Start serving the app after production build
-- `../TourOfHeroesApi/tour-of-heroes-api`: Start backend
 
 ## Evaluation: Developer Experience
 
@@ -41,7 +41,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - You have control over the server & rendering behavior
 - Analysis of browser network tab
   - The page html is now prerendered and small (<100kB)
-  - Modular parts of your application are fetched afterwards
+  - Modular parts / chunks of the app are prefetched afterwards / on demand
+  - Interpretation: Good loading characteristics!
 - Analysis using Lighthouse
   - Performance of the demo app is mediocre without tweaks
   - Total blocking time (_when can the page be interacted with?_) is very good (~60ms)
