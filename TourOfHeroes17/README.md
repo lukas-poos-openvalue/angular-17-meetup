@@ -13,7 +13,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Cool features and where to find them (Search for `PoI` (point of interest) in the code!)
 
   - [Angular.dev](https://angular.dev): Updated branding with new _documentation_
-  - [src-folder](./src/): _Less junk files_ in the src directory (vendor.ts, polyfill.ts, karma.conf.js, ...)
   - [server.ts](./server.ts): _SSR + hydration_ are very easy to add and extend (via Angular CLI)
   - [main.ts](./src/main.ts): how to bootstrap an application with a _standalone root component_
   - [HeroesComponent](./src/app/heroes/heroes.component.ts): _signals_, _inject-function_, _standalone_, _private fields_
