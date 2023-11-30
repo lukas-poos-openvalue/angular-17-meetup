@@ -17,10 +17,7 @@
 <mat-list>
   @for (hero of heroes(); track hero.id) {
   <mat-list-item>
-    <app-hero-list-item
-      [hero]="hero"
-      (delete)="delete(hero)"
-    ></app-hero-list-item>
+    <app-hero-list-item [hero]="hero" (delete)="delete(hero)" />
   </mat-list-item>
   }
 </mat-list>

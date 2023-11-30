@@ -19,8 +19,8 @@
 
 <mat-divider></mat-divider>
 
-@defer (on idle) {
-<app-hero-search></app-hero-search>
+@defer (on viewport; prefetch on idle) {
+<app-hero-search />
 } @placeholder {
 <strong>HERO SEARCH</strong>
 } @loading {
