@@ -50,4 +50,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     - Largest Contentful Paint (_how long until largest content element is painted?_)
     - Speed index (_how long until the content is visible?_)
   - Interpretation: Loading uncompressed fonts loses time on alot of metrics
-  - Reference report: [lighthouse report](./lighthouse_reference_report.html)
+  - Lighthouse reference reports:
+    - [Without Compression](./lighthouse_report_no_compression.html)
+    - [With Compression](./lighthouse_report_with_compression.html)
