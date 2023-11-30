@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, MatToolbarModule, MatChipsModule, MatButtonModule],
   templateUrl: './messages.component.html',
-  styleUrl: './messages.component.css'
+  styleUrl: './messages.component.css',
 })
 export class MessagesComponent {
   #messageService = inject(MessageService);

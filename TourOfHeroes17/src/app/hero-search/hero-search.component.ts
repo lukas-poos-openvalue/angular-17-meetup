@@ -12,9 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-hero-search',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatListModule, MatInputModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    MatListModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   templateUrl: './hero-search.component.html',
-  styleUrl: './hero-search.component.css'
+  styleUrl: './hero-search.component.css',
 })
 export class HeroSearchComponent {
   #heroService = inject(HeroService);

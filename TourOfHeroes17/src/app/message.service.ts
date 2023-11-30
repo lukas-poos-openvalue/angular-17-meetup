@@ -6,7 +6,7 @@ export class MessageService {
   messages = this.#messages.asReadonly();
 
   add(message: string) {
-    this.#messages.update(prev => [...prev, message]);
+    this.#messages.update((prev) => [...prev, message]);
   }
 
   clear() {

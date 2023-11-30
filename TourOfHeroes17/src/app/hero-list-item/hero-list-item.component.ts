@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, RouterLink, MatIconModule, MatButtonModule],
   templateUrl: './hero-list-item.component.html',
-  styleUrl: './hero-list-item.component.css'
+  styleUrl: './hero-list-item.component.css',
 })
 export class HeroListItemComponent {
   @Input({ required: true }) hero!: Hero;

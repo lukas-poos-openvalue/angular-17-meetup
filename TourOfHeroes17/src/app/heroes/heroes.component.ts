@@ -1,5 +1,11 @@
-import { Component, OnInit, computed, effect, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {
+  Component,
+  OnInit,
+  computed,
+  effect,
+  inject,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,9 +17,16 @@ import { Hero, HeroService } from '../hero.service';
 @Component({
   selector: 'app-heroes',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatListModule, MatInputModule, HeroListItemComponent],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    HeroListItemComponent,
+  ],
   templateUrl: './heroes.component.html',
-  styleUrl: './heroes.component.css'
+  styleUrl: './heroes.component.css',
 })
 export class HeroesComponent implements OnInit {
   // PoI: Private with "#" / dependency injection with inject-function
@@ -30,7 +43,9 @@ export class HeroesComponent implements OnInit {
   #heroesCount = computed(() => this.heroes().length);
 
   ngOnInit(): void {
-    this.#heroService.getHeroes().subscribe(heroes => this.#heroes.set(heroes));
+    this.#heroService
+      .getHeroes()
+      .subscribe((heroes) => this.#heroes.set(heroes));
 
     // PoI: Whenever dependent values change, perform side effect!
     effect(() => console.log(`Count was updated to ${this.#heroesCount()}`));
@@ -41,12 +56,13 @@ export class HeroesComponent implements OnInit {
     if (!name) return;
 
     // PoI: Update a signal's value (using signal.update(prev => ...) or signal.set(...))
-    this.#heroService.addHero({ name } as Hero)
-      .subscribe(hero => this.#heroes.update(prev => [...prev, hero]));
+    this.#heroService
+      .addHero({ name } as Hero)
+      .subscribe((hero) => this.#heroes.update((prev) => [...prev, hero]));
   }
 
   delete(hero: Hero): void {
-    this.#heroes.update(prev => prev.filter(h => h !== hero));
+    this.#heroes.update((prev) => prev.filter((h) => h !== hero));
     this.#heroService.deleteHero(hero.id).subscribe();
   }
 }

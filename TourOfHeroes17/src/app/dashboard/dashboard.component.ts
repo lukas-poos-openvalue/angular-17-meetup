@@ -12,13 +12,22 @@ import { map } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatIconModule, MatButtonModule, MatDividerModule, HeroSearchComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    HeroSearchComponent,
+  ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
   #heroService = inject(HeroService);
 
   // PoI: RxJS-interop: Create signal from Observable
-  topHeroes = toSignal(this.#heroService.getHeroes().pipe(map(heroes => heroes.slice(1, 5))));
+  topHeroes = toSignal(
+    this.#heroService.getHeroes().pipe(map((heroes) => heroes.slice(1, 5))),
+  );
 }

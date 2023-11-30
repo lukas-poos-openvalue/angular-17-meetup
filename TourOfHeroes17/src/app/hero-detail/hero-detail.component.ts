@@ -1,4 +1,11 @@
-import { Component, Input, inject, signal, effect, runInInjectionContext } from '@angular/core';
+import {
+  Component,
+  Input,
+  inject,
+  signal,
+  effect,
+  runInInjectionContext,
+} from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Hero, HeroService } from '../hero.service';
 import { MatCardModule } from '@angular/material/card';
@@ -10,16 +17,24 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-hero-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatCardModule, MatButtonModule, MatInputModule, MatIconModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+  ],
   templateUrl: './hero-detail.component.html',
-  styleUrl: './hero-detail.component.css'
+  styleUrl: './hero-detail.component.css',
 })
 export class HeroDetailComponent {
   // PoI: Required inputs & route input binding (see route '/detail/{id}')
   @Input({ required: true })
   set id(heroId: string) {
-    this.#heroService.getHero(parseInt(heroId, 10))
-      .subscribe(hero => this.#hero.set(hero));
+    this.#heroService
+      .getHero(parseInt(heroId, 10))
+      .subscribe((hero) => this.#hero.set(hero));
   }
 
   #location = inject(Location);
@@ -33,7 +48,7 @@ export class HeroDetailComponent {
   }
 
   updateName(name: string): void {
-    this.#hero.update(prev => prev ? { ...prev, name } : undefined);
+    this.#hero.update((prev) => (prev ? { ...prev, name } : undefined));
   }
 
   save(): void {
